@@ -1,18 +1,283 @@
-/* --- CORRECTIONS RESPONSIVE POUR CARTES SERVICE ET HEADER FIXE --- */
-
-/* Padding pour compenser le header fixe */
-body {
-  padding-top: 110px; /* hauteur header */
+/* ===== Global ===== */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
 }
 
-/* Service Cards - base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  padding-top: 110px; /* compensation header fixe */
+  color: #fff;
+  line-height: 1.6;
+  position: relative;
+  z-index: 0;
+  height: 100%;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)),
+    url('images/clair.jpg') center center / cover no-repeat fixed;
+  z-index: -1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  font-size: 21px;
+  margin: 0;
+}
+
+h1, h3 {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+h3 {
+  font-size: 26px;
+}
+
+/* ===== Header ===== */
+header {
+  width: 80%;
+  max-width: 1200px;
+  height: 110px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1%;
+  max-height: 18vh;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 0 0 20px 20px;
+  z-index: 10;
+}
+
+header h1 {
+  width: 15%;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+header h1 img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* ===== Overlay ===== */
+.overlay {
+  width: 100%;
+  padding: 100px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .overlay {
+    padding: 60px 20px;
+  }
+}
+
+/* ===== Hero ===== */
+.hero h1 {
+  font-size: 3vw;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.5vw;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 1100px) {
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero p {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5em;
+  }
+
+  .hero p {
+    font-size: 1em;
+  }
+}
+
+/* ===== CTA Buttons ===== */
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 55px;
+}
+
+.cta-button {
+  position: relative;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 18px;
+  padding-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  color: #ffb04962;
+  transform: scale(1.05);
+}
+
+.cta-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -6px;
+  height: 2px;
+  width: 0%;
+  background-color: #ffb04962;
+  transition: width 0.4s ease;
+}
+
+.cta-button:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .cta-group {
+    gap: 20px;
+    margin: 25px 5px;
+    flex-direction: column;
+  }
+  .cta-button {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cta-button {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 50px 30px;
+  max-width: 1200px;
+  margin: auto;
+  background: none;
+  color: #e2ded9;
+  box-sizing: border-box;
+}
+
+section h2 {
+  font-family: 'parisienne', cursive;
+  font-size: 50px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ffb04962;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+@media (max-width: 480px) {
+  section h2 {
+    font-size: 36px;
+  }
+}
+
+section#a-propos {
+  padding-top: 100px;
+}
+
+section#a-propos p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 21px;
+}
+
+/* ===== Service Cards ===== */
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+}
+
 .service-card {
+  perspective: 1000px;
   height: 200px;
   width: 30%;
-  min-width: unset;
+  min-width: 280px;
+  box-sizing: border-box;
+  position: relative;
 }
 
-/* Responsive - petits écrans */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.service-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  background: rgba(167, 109, 3, 0.432);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  font-style: italic;
+  background: rgba(67, 67, 67, 0.432);
+}
+
+/* Responsive service cards */
 @media (max-width: 1100px) {
   .service-card {
     width: 45%;
@@ -32,7 +297,6 @@ body {
     width: 95%;
     height: auto;
   }
-  /* Ajustement taille texte à l'intérieur des cartes */
   .service-card h3 {
     font-size: 1.1rem;
   }
@@ -41,54 +305,112 @@ body {
   }
 }
 
-/* Detail cards full width on small */
-@media (max-width: 480px) {
+/* ===== Detail Cards ===== */
+.details-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 80px;
+}
+
+.detail-card {
+  background: rgba(167, 109, 3, 0.432);
+  padding: 10px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.detail-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.detail-card h3 {
+  margin-bottom: 10px;
+}
+
+.detail-card p {
+  margin: 0;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .details-cards {
+    flex-direction: column;
+  }
+
   .detail-card {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-card {
     padding: 10px 15px;
   }
 }
 
-/* Burger plus visible sur mobiles */
-@media (max-width: 480px) {
-  .burger span {
-    width: 30px;
-    height: 4px;
-  }
+/* ===== Testimonials ===== */
+.temoignages {
+  margin-top: 50px;
 }
 
-/* Ajustement overlay padding sur mobiles */
+.temoignage {
+  background: rgba(167, 109, 3, 0.432);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 50px;
+}
+
+.temoignage p {
+  font-style: italic;
+}
+
+.temoignage strong {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* ===== Responsive Utility ===== */
 @media (max-width: 600px) {
-  .overlay {
-    padding: 60px 20px;
+  header {
+    width: 90%;
+    height: 80px;
+    padding: 0 10px;
   }
-}
 
-/* Ajustement nav-links largeur sur mobiles */
-@media (max-width: 768px) {
-  .nav-links {
-    width: 100%;
-  }
-}
-
-/* Header image logo plus petit sur mobiles */
-@media (max-width: 600px) {
   header h1 img {
     height: 60px;
   }
-}
 
-/* H2 responsive */
-@media (max-width: 480px) {
-  section h2 {
-    font-size: 36px;
+  .cta-group {
+    flex-direction: column;
+    gap: 15px;
   }
-}
 
-/* CTA Button ajustement */
-@media (max-width: 600px) {
-  .cta-button {
-    font-size: 16px;
-    text-align: center;
+  section {
+    padding: 30px 15px;
   }
 }
