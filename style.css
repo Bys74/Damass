@@ -657,3 +657,82 @@ footer p {
     border-radius: 0 0 20px 20px;
   }
 }
+
+
+/* ----------- MEDIA QUERIES POUR RESPONSIVITÉ ----------- */
+
+/* Mobiles Portrait ≤ 480px */
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 5px;
+  }
+
+  header h1 img {
+    height: 60px;
+  }
+
+  .hero h1 {
+    font-size: 7vw;
+  }
+
+  .hero p {
+    font-size: 4.5vw;
+  }
+
+  .service-card {
+    width: 100%;
+  }
+
+  .cta-group {
+    gap: 15px;
+  }
+
+  .cta-button {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  section h2 {
+    font-size: 36px;
+  }
+
+  #contact-form {
+    padding: 15px;
+  }
+}
+
+/* Tablettes Portrait ≤ 768px */
+@media (max-width: 768px) {
+  .service-card {
+    width: 80%;
+  }
+
+  .cta-group {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    width: 100%;
+  }
+
+  section h2 {
+    font-size: 42px;
+  }
+}
+
+/* Grands écrans ≥ 1200px */
+@media (min-width: 1200px) {
+  .hero h1 {
+    font-size: 2.5vw;
+  }
+
+  .hero p {
+    font-size: 1.2vw;
+  }
+
+  .service-card {
+    width: 28%;
+  }
+}
