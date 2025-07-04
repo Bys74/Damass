@@ -52,7 +52,7 @@ html {
   position: absolute;
   top: 100%;
   right: 0;
-  background: rgba(0, 0, 0, 0.13); /* transparence */
+  background: rgba(116, 88, 3, 0.371); /* transparence */
   backdrop-filter: blur(100px);     /* flou */
   -webkit-backdrop-filter: blur(10px); /* pour Safari */
   width: 100%;
