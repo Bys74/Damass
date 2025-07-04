@@ -20,34 +20,34 @@ faders.forEach(fadeEl => {
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('nav-links');
 
+// Toggle menu burger open/close
 burger.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
   burger.classList.toggle('active');
+  navLinks.classList.toggle('active');
 });
 
-  (function() {
-    emailjs.init("tCM8yL8km_EiLxWER"); // remplace par ton User ID (ou Public Key)
-  })();
-
-  document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm("service_o8qv4lo", "template_vu0jc09", this)
-      .then(function() {
-        document.getElementById("status-msg").textContent = "Message envoyé ! ✅";
-      }, function(error) {
-        document.getElementById("status-msg").textContent = "Erreur : " + error.text;
-      });
-
-    this.reset();
+// Fermer menu au clic sur un lien
+const links = navLinks.querySelectorAll('a');
+links.forEach(link => {
+  link.addEventListener('click', () => {
+    burger.classList.remove('active');
+    navLinks.classList.remove('active');
   });
+});
 
-  document.addEventListener("DOMContentLoaded", function () {
-  const burger = document.getElementById("burger");
-  const nav = document.getElementById("nav-links");
+(function() {
+  emailjs.init("tCM8yL8km_EiLxWER"); // remplace par ton User ID (ou Public Key)
+})();
 
-  burger.addEventListener("click", () => {
-    burger.classList.toggle("active");
-    nav.classList.toggle("active");
-  });
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  emailjs.sendForm("service_o8qv4lo", "template_vu0jc09", this)
+    .then(function() {
+      document.getElementById("status-msg").textContent = "Message envoyé ! ✅";
+    }, function(error) {
+      document.getElementById("status-msg").textContent = "Erreur : " + error.text;
+    });
+
+  this.reset();
 });
