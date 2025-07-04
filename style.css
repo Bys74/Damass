@@ -198,15 +198,24 @@ header h1 img {
   }
 }
 
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 1.5em;
+@media (max-width: 1080px) {
+  .service-card {
+    width: 10%;        /* réduis la largeur de 100% à 80% */
+    max-width: 280px;  /* limite une largeur max */
+    aspect-ratio: 1 / 1;
   }
 
-  .hero p {
-    font-size: 1em;
+  .card-front h3,
+  .card-back h3 {
+    font-size: 0.1rem;  /* un peu plus petit */
+  }
+
+  .card-front p,
+  .card-back p {
+    font-size: 0.8rem;  /* un peu plus petit */
   }
 }
+
 
 /* ===== CTA Buttons ===== */
 .cta-group {
