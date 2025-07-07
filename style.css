@@ -84,6 +84,7 @@ html {
 }
 
 body {
+  min-height: 100vh;
   background:
     linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)),
     url('images/logo2.png') calc(50% + 20px) center / cover no-repeat;
@@ -92,7 +93,6 @@ body {
   background-position: calc(50% + 20px) center;
   background-repeat: no-repeat;
 }
-
 
 body::before {
   content: "";
@@ -108,23 +108,20 @@ body::before {
   z-index: -1;
 }
 
-
-
 @media (max-width: 768px) {
+  body {
+    background: none;
+  }
+
   body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh; /* garantit que ça prend toute la hauteur visible */
+    height: 100vh;
     background:
       linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)),
       url('images/logo2.png') center center / cover no-repeat;
-    background-attachment: scroll; /* éviter le défilement bizarre */
-    z-index: -1;
+    background-attachment: scroll;
   }
 }
+
 
 
 
