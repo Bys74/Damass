@@ -318,7 +318,7 @@ section h2 {
 /* Style amélioré pour la section À propos */
 
 section#a-propos {
-  margin-top: 60px; /* éloigne visuellement du menu */
+  margin-top: 160px; /* éloigne visuellement du menu */
   padding: 0px 30px 60px;
   max-width: 800px;
   margin-left: auto;
