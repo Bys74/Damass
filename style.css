@@ -87,9 +87,9 @@ body {
   min-height: 100vh;
   background:
     linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)),
-    url('images/logo2.png') calc(50% + 20px) center / cover no-repeat;
+    url('images/logo4.png') calc(50% + 20px) center / cover no-repeat;
   background-attachment: scroll;
-  background-size: cover;
+  background-size: contain;
   background-position: calc(50% + 20px) center;
   background-repeat: no-repeat;
 }
@@ -103,12 +103,16 @@ body::before {
   height: 100%;
   background:
     linear-gradient(rgba(0, 0, 0, 0.429), rgba(0, 0, 0, 0.5)),
-    url('images/logo2.png') center center / cover no-repeat;
+    url('images/logo5.jpeg') center center / cover no-repeat;
   background-attachment: fixed;
+  background-position: center top;
+
   z-index: -1;
 }
 
-@media (max-width: 768px) {
+
+
+@media (max-width: 1600px) {
   body {
     background: none;
   }
@@ -323,9 +327,8 @@ section#a-propos {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(3, 3, 3, 0);
   border-radius: 20px;
-  backdrop-filter: blur(5px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
