@@ -374,10 +374,16 @@ section#a-propos:hover {
   transform-style: preserve-3d;
 }
 
-/* ===== Flip Effect ===== */
-.service-card:hover .card-inner {
+.card-inner.flipped {
   transform: rotateY(180deg);
 }
+
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
 
 /* ===== Common Style for Both Faces ===== */
 .card-front,
