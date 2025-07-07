@@ -260,6 +260,22 @@ En aucun cas le terme guérison ne signifie la  guérison d'une pathologie ou d'
     <p>&copy; 2025 Damass Reiki  | Tous droits réservés</p>
   </footer>
 
+<script>
+  // Activer le flip au toucher sur mobile
+  document.querySelectorAll('.service-card').forEach((card) => {
+    card.addEventListener('click', function () {
+      // Ne retourne qu'une seule carte à la fois (optionnel)
+      document.querySelectorAll('.service-card .card-inner').forEach(inner => {
+        if (inner !== card.querySelector('.card-inner')) {
+          inner.classList.remove('flipped');
+        }
+      });
+
+      card.querySelector('.card-inner').classList.toggle('flipped');
+    });
+  });
+</script>
+
 
 </body>
 </html>
