@@ -85,14 +85,14 @@ html {
 
 body {
   min-height: 100vh;
+  background-color: #2d3227; /* fallback */
   background:
-    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)),
-    url('images/logo4.png') calc(50% + 20px) center / cover no-repeat;
+    linear-gradient(to right, #2d3227, #3c2f23),
+    url('images/logo4.png') center / cover no-repeat;
   background-attachment: scroll;
-  background-size: contain;
-  background-position: calc(50% + 20px) center;
-  background-repeat: no-repeat;
 }
+
+
 
 body::before {
   content: "";
@@ -103,7 +103,7 @@ body::before {
   height: 100%;
   background:
     linear-gradient(rgba(0, 0, 0, 0.429), rgba(0, 0, 0, 0.5)),
-    url('images/logo5.jpeg') center center / cover no-repeat;
+    url('images/logo4_cropped.png') center center / cover no-repeat;
   background-attachment: fixed;
   background-position: center top;
 
