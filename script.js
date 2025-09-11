@@ -51,3 +51,49 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
 
   this.reset();
 });
+
+const track = document.querySelector('.carousel-track');
+const slides = Array.from(track.children);
+const nextButton = document.querySelector('.next');
+const prevButton = document.querySelector('.prev');
+const dotsNav = document.querySelector('.carousel-dots');
+
+// Crée les points dynamiquement
+slides.forEach((_, i) => {
+  const dot = document.createElement('button');
+  if (i === 0) dot.classList.add('active');
+  dotsNav.appendChild(dot);
+});
+
+const dots = Array.from(dotsNav.children);
+let currentIndex = 0;
+
+function updateCarousel(index) {
+  track.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
+nextButton.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel(currentIndex);
+});
+
+prevButton.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateCarousel(currentIndex);
+});
+
+dots.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    currentIndex = i;
+    updateCarousel(currentIndex);
+  });
+});
+
+// Optionnel : défilement auto toutes les 6s
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel(currentIndex);
+}, 6000);
+
