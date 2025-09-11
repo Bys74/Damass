@@ -531,29 +531,98 @@ section#a-propos:hover {
 
 
 
+
 /* ===== Testimonials ===== */
 .temoignages {
   margin-top: 50px;
+  text-align: center;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  /* Hauteur animée pour s’adapter au contenu */
+  height: auto;
+  transition: height 0.4s ease-in-out;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
 .temoignage {
-  background: rgba(167, 109, 3, 0.432);
-  padding: 20px;
+  min-width: 100%;
+  background: rgba(167, 109, 3, 0.15);
+  padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  margin: 10px auto; /* centrage + espacement */
-  max-width: 1000px;   /* ajuste ici selon la taille désirée */
-}
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 
+  /* Empêcher le texte d’être tronqué */
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  word-break: break-word;
+}
 
 .temoignage p {
   font-style: italic;
+  font-size: 1.1rem;
 }
 
 .temoignage strong {
-  font-weight: bold;
+  display: block;
   margin-top: 10px;
+  font-weight: bold;
 }
+
+/* Boutons navigation */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(167, 109, 3, 0.7);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.carousel-btn:hover {
+  background: rgba(167, 109, 3, 1);
+}
+
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
+}
+
+/* Petits points */
+.carousel-dots {
+  margin-top: 15px;
+}
+.carousel-dots button {
+  border: none;
+  background: #ccc;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.carousel-dots button.active {
+  background: rgba(167, 109, 3, 1);
+}
+
 
 /* ===== Footer ===== */
 footer {
